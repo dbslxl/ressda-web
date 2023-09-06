@@ -1,37 +1,39 @@
-"use client";
+// "use client";
 
 import Image from 'next/image'
-import { Navbar } from "flowbite-react";
+import ProductList from '@/components/ProductList'
+import ProductCard from '@/components/ProductCard'
+import Container from '@/components/Container'
+import { Button } from '@/components/ui/button'
+import { ShoppingBag } from 'lucide-react'
+import FAQ from '@/components/FAQ'
+
+
 
 export default function Home() {
   return (
-    <>    
-      <Navbar fluid={true} rounded={true}>
-          <Navbar.Brand href="https://flowbite.com/">
-            <img
-              src="https://flowbite.com/docs/images/logo.svg"
-              className="mr-3 h-6 sm:h-9"
-              alt="Flowbite Logo"
-            />
-            <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-              Flowbite
-            </span>
-          </Navbar.Brand>
-          <Navbar.Toggle />
-          <Navbar.Collapse>
-            <Navbar.Link href="/navbars" active={true}>
-              Home
-            </Navbar.Link>
-            <Navbar.Link href="/navbars">About</Navbar.Link>
-            <Navbar.Link href="/navbars">Services</Navbar.Link>
-            <Navbar.Link href="/navbars">Pricing</Navbar.Link>
-            <Navbar.Link href="/navbars">Contact</Navbar.Link>
-          </Navbar.Collapse>
-        </Navbar>
-      <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        this is Home page
-
-      </main>
+    <>      
+           
+      <Container>
+        <div className="p-4 sm:p-6 lg:p-8 rounded-lg overflow-hidden">
+          <div
+            style={{ backgroundImage: `url(/img/cat.jpg)` }}
+            className="rounded-lg relative aspect-square md:aspect-[2.4/1] overflow-hidden bg-cover"
+          >
+            <div className="h-full w-full flex flex-col justify-center items-center text-center gap-y-8">
+              <div className="font-bold text-3xl sm:text-5xl lg:text-6xl sm:max-w-xl max-w-xs text-black dark:text-white bg-secondary/60 p-4 rounded-lg">
+                Featured Products
+                <Button size="lg" className="w-full py-6 text-xl">
+                  <ShoppingBag className="mr-2" />
+                  Shop Now
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ProductList/>        
+        <FAQ/>
+      </Container>
     </>
   )
 }

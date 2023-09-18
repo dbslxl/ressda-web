@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 
 import Link from "next/link";
 import Container from "./Container";
@@ -28,12 +28,12 @@ const Header = () => {
   ];
 
   return (
-    <header className="sm:flex sm:justify-between py-3 px-4 border-b">
+    <nav className="sm:flex sm:justify-between py-3 px-4 border-b sticky top-0 z-10 bg-white">
       <Container>
         <div className="relative px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between w-full">
           <div className="flex items-center">
             <Link href="/" className="ml-0 lg:ml-0 flex items-center">
-              <img src="/img/logo1.png" alt="logo" className="h-24" />
+              <img src="/img/logo1.png" alt="logo" className="h-20" />
               {/* <h1 className="text-2xl font-semibold">Ressda</h1> */}
             </Link>
           </div>
@@ -117,7 +117,7 @@ const Header = () => {
           </div>
         </div>
       </Container>
-    </header>
+    </nav>
   );
 };
 

@@ -19,8 +19,7 @@ const ProductList: React.FC<any> = ({ items }) => {
         <ProductCard />
         <ProductCard />
         <ProductCard />
-        <ProductCard />
-              
+        <ProductCard />              
       </div>
     </div>
   );

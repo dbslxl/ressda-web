@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Container from "./Container";
 import { Button } from "./ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetClose, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Moon, ShoppingCart, Sun } from "lucide-react";
 import Image from "next/image";
 import { Separator } from "@/components/ui/separator"
@@ -76,42 +76,49 @@ const Header = () => {
                 <Menu className="h-6 md:hidden w-6" />
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-                <nav className="flex flex-col gap-4">
-                  {routes.map((route, i) => (
-                    <Link
-                      key={i}
-                      href={route.href}
-                      className="block px-2 py-1 text-lg"
-                    >
-                      {route.label}
-                    </Link>
-                  ))}
-                  <hr
-                    style={{
-                      backgroundColor: "#b4b7b997",
-                      height: 2,
-                    }}
-                  />
-                  {routes.map((route, i) => (
-                    <Link
-                      key={i}
-                      href={route.href}
-                      className="block px-2 py-1 text-lg"
-                    >
-                      {route.label}
-                    </Link>
-                  ))}
-                  <Separator/>
-                  {routes.map((route, i) => (
-                    <Link
-                      key={i}
-                      href={route.href}
-                      className="block px-2 py-1 text-lg"
-                    >
-                      {route.label}
-                    </Link>
-                  ))}
-                </nav>
+                
+                  <nav className="flex flex-col gap-4">
+                  
+                    {routes.map((route, i) => (
+                      <SheetClose asChild>
+                      <Link
+                        key={i}
+                        href={route.href}
+                        className="block px-2 py-1 text-lg"
+                      >
+                        {route.label}
+                      </Link>
+                      </SheetClose>
+                    ))}
+                    <hr
+                      style={{
+                        backgroundColor: "#b4b7b997",
+                        height: 2,
+                      }}
+                    />
+                    {routes.map((route, i) => (
+                      <Link
+                        key={i}
+                        href={route.href}
+                        className="block px-2 py-1 text-lg"
+                      >
+                        {route.label}
+                      </Link>
+                    ))}
+                    <Separator/>
+                    {routes.map((route, i) => (
+                      <Link
+                        key={i}
+                        href={route.href}
+                        className="block px-2 py-1 text-lg"
+                      >
+                        {route.label}
+                      </Link>
+                    ))}
+                    
+                  </nav>
+                
+                <Button type='submit'>test</Button>
               </SheetContent>
             </Sheet>
           </div>

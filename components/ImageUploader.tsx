@@ -21,6 +21,31 @@ function ImageUploader() {
     } 
   }
 
+  const handleSubmit = () => {
+
+  }
+  const handleFormSubmit = async (e:React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()    
+    const formData = new FormData(e.target as HTMLFormElement)
+    console.log('form data:',formData)
+    const response = await fetch('/picture/predict', {
+      method: 'POST',
+      body: formData
+    })
+    const data = await response.json();
+    console.log('response data:',data)
+    // formData.append('image', image)
+    // fetch('/api/upload', {
+    //   method: 'POST',
+
+    //   body: formData
+    // })
+  }
+
+  
+    
+
+
   // const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
   //   const selected = e.target.files?.[0]
   //   setImage(selected)
@@ -47,6 +72,12 @@ function ImageUploader() {
           </label>
         </div>
         <Button className='m-auto block'>제출</Button>
+
+        <form onSubmit={handleFormSubmit}  className='flex-col'>
+          <input type="text" name='title' placeholder="제목"/>
+          {/* <input type="file" name='image' onChange={handleChange}/> */}
+          <button type="submit">제출</button>
+        </form>
 
       </Container>
     </>

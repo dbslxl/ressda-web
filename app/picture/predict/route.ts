@@ -3,17 +3,18 @@ import { writeFile } from 'fs/promises'
 export async function POST(request: Request) {
   const formData = await request.formData()
   const title = formData.get('title')
-  // const file :File|null = formData.get('image') as unknown as File
+  const file :File|null = formData.get('image') as unknown as File
   console.log(request.headers.get('content-type'))
   // console.log(file)
  
 
   
-  // const bytes = await file?.arrayBuffer()
-  // const buffer = Buffer.from(bytes)
+  const bytes = await file?.arrayBuffer()
+  console.log(bytes)
+  const buffer = Buffer.from(bytes)
 
-  // const path = join('/','uploadTest.png')
-  // console.log(path)
+  const path = join('/','uploadTest.png')
+  console.log(path)
   // await writeFile(path,buffer)
 
   return Response.json({ title,})
